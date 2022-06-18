@@ -1,7 +1,9 @@
+import useActions from "../hooks/useActions";
 import usePrototypes from "../hooks/usePrototypes";
 
 export default function Prototypes() {
   const prototypes = usePrototypes();
+  const { addToOrder } = useActions();
 
   return(
     <main>
@@ -9,6 +11,9 @@ export default function Prototypes() {
       <div className="prototypes">
         {prototypes.map(prototype => {
           const { id, title, price, description, thumbnail, review, url }= prototype;
+          const click = () => {
+            addToOrder(id);
+          }
           return(
             <div className="prototype" key={id}>
               <a href={url} target="_blank" rel="noreferrer">
@@ -21,7 +26,7 @@ export default function Prototypes() {
                   <p className="item__price">{price}원</p>
                   <p className="item__review">리뷰 {review}</p> 
                 </div>
-                <button className="item__add">
+                <button className="item__add" onClick={click}>
                   <span className="blind">상품 추가하기</span>
                 </button>
               </a>
