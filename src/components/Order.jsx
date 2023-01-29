@@ -1,6 +1,6 @@
 import useOrders from "../hooks/useOrders";
-import usePrototypes from './../hooks/usePrototypes';
-import useActions from './../hooks/useActions';
+import usePrototypes from '../hooks/usePrototypes';
+import useActions from '../hooks/useActions';
 import { useMemo } from "react";
 
 export default function Orders() {
@@ -13,7 +13,7 @@ export default function Orders() {
     return orders.map((order)=>{
       const {id, quantity} = order;
       const prototype = prototypes.find(p=>p.id === id);
-      
+
       return prototype.price * quantity;
     })
     .reduce((l,r)=>l+r, 0);
@@ -39,7 +39,7 @@ export default function Orders() {
             const prototype = prototypes.find(p=>p.id === id);
             const click = () => {
               remove(id)
-            } 
+            }
 
             return (
               <div className="item" key={id}>

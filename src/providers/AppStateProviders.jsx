@@ -165,4 +165,3 @@ const AppStateProvider = ({children}) => {
 }
 
 export default AppStateProvider;
-
